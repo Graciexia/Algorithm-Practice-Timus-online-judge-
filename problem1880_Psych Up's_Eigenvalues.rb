@@ -11,7 +11,7 @@ a3 = gets.split(" ").map{|x| x.to_i}
 #     count += 1
 #   end
 # end
-# 
+#
 # puts count
 
 puts (a1 & a2 & a3).count

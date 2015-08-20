@@ -12,7 +12,7 @@ stones_weight_from_big.each_with_index do |stone, index|
     stones1 << stone
   else
     stones2 << stone
-  end
+  end4
 end
 value1 = stones1.reduce :+
 value2 = stones2.reduce :+
