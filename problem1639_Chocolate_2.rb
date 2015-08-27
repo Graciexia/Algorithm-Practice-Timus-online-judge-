@@ -1,4 +1,9 @@
-
+m,n = gets.split(" ").map{|i| i.to_i}
+if (m * n) % 2 == 0
+  puts "[:=[first]"
+else
+  puts "[second]=:]"
+end
 
 
 

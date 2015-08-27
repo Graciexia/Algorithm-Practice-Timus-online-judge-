@@ -1,15 +1,16 @@
 n = gets.to_i
 arr = gets.split(" ").map{|x| x.to_i}
-sum = []
-puts arr
-arr(0)
-# arr.each_with_index do |num,index|
-#   sum.push([num,arr(index + 1),arr(index + 2)].reduce(:+))
-# end
-# max = sum.max
-# max_index = sum.find_index(max)
-# print max
-# print max_index
+max_sum = -999999999999
+id = 0
+(0..n-3).each do |i|
+  if arr[i] + arr[i+1] + arr[i+2] > max_sum
+    max_sum = arr[i] + arr[i+1] + arr[i+2]
+    id = i + 2
+  end
+end
+puts "#{max_sum} #{id}"
+
+
 
 
 # 1910. Titan Ruins: Hidden Entrance Time limit: 1.0 second Memory limit: 64 MB Soren and Alba were famous and
@@ -44,4 +45,6 @@ arr(0)
 # 1 4 4 4 1 1
 # output
 # 12 3
+
+
 
