@@ -26,6 +26,19 @@ end
   end
 end
 
+# solution 2 for the bottom left half triangle
+# value = n * n
+# (0..n-2).each do |start_column|
+#   row = n-1
+#   column = start_column
+#   while column >= 0
+#     arr[row][column] = value
+#     value = value - 1
+#     row -= 1
+#     column -= 1
+#   end
+# end
+
 (0..n-1).each do |row|
   print "#{arr[row].join(" ")}\n"
 end
