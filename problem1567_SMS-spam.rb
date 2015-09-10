@@ -1,31 +1,43 @@
-input = gets.gsub("\n", "").gsub(" ", "_").split("")
-
-arrs = []
-arrs[0] = %w(a d g j m p s v y . _)
-arrs[1] = %w(b e h k n q t w z ,)
-arrs[2] = %w(c f i l o r u x !)
-
+# soulution O(n)
+myhash = Hash.new(0)
+%w(a d g j m p s v y . _).each {|letter| myhash[letter] = 1}
+%w(b e h k n q t w z ,).each {|letter| myhash[letter] = 2}
+%w(c f i l o r u x !).each {|letter| myhash[letter] = 3}
 sum = 0
 
-counts = Hash.new(0)
-input.each do |element|
-  counts[element] += 1
-end
-
-arrs.each_with_index do |arr, index|
-  tab = input & arr
-  tab.each do |letter|
-    if index == 0
-      sum += counts[letter]
-    elsif index == 1
-      sum += counts[letter] * 2
-    else
-      sum += counts[letter] * 3
-    end
-  end
+gets.gsub("\n", "").gsub(" ", "_").split("").each do |letter|
+  sum += myhash[letter]
 end
 
 puts sum
+
+
+
+# original soulution
+# input = gets.gsub("\n", "").gsub(" ", "_").split("")
+#
+# arrs = []
+# arrs[0] = %w(a d g j m p s v y . _)
+# arrs[1] = %w(b e h k n q t w z ,)
+# arrs[2] = %w(c f i l o r u x !)
+#
+# sum = 0
+#
+# counts = Hash.new(0)
+# input.each do |element|
+#   counts[element] += 1
+# end
+#
+# arrs.each_with_index do |arr, index|
+#   tab = input & arr
+#   tab.each do |letter|
+#     sum += counts[letter] * (index+1)
+#   end
+# end
+#
+# puts sum
+
+
 
 
 # 1567. SMS-spam Time limit: 1.0 second Memory limit: 64 MB
