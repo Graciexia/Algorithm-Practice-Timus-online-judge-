@@ -1,3 +1,5 @@
+
+# # too slow
 # def is_good(arr, inc_pos)
 #   if inc_pos >= 1 && arr[inc_pos] == arr[inc_pos-1]
 #     return false
@@ -60,6 +62,7 @@
 # print count
 #
 
+# # math solution based on the pattern of the number series
 n = gets.to_i
 if n < 3
   print 2
@@ -76,6 +79,13 @@ else
 end
 
 
+# # recursion
+# # too slow! :-p
+# def fib(n)
+#   return 1 if (n == 1 || n == 2)
+#   return (fib(n-2) + fib(n-1))
+# end
+# print fib(gets.to_i)
 
 
 # 1225. Flags Time limit: 1.0 second Memory limit: 64 MB
