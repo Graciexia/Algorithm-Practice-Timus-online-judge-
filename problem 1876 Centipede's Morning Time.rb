@@ -1,7 +1,11 @@
 a, b = gets.split(" ").map{|x| x.to_i}
-left_unshot = 39*2 + 40 + (a - 40)*2 + 1
-right_unshot = 39*2 + 39 + (b - 39)*2 + 1
-puts [left_unshot, right_unshot].max
+left_unshod = 39*2 + 40 + (a - 40)*2 + 1
+right_unshod = 39*2 + 39 + (b - 39)*2 + 1
+puts [left_unshod, right_unshod].max
+
+# 39 means the longest time getting the 39 feet in the splippers. 39*2 means the longest time getting the 39 right
+# feet in the splippers. left_ushod means the solution making the left left foot unshod first. right_ushod means the
+# solution making the left right foot unshod fisrt.
 
 
 # 1876. Centipede's Morning
