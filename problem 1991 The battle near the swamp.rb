@@ -1,3 +1,15 @@
+n,k = gets.split(" ").map{|x| x.to_i}
+trucks = gets.split(" ").map{|x| x.to_i}
+count_booms = 0
+count_droids = 0
+trucks.each do |truck|
+  if truck - k >= 0
+    count_booms += truck - k
+  else
+    count_droids += k - truck
+  end
+end
+puts "#{count_booms} #{count_droids}"
 
 
 # 1991. The battle near the swamp
