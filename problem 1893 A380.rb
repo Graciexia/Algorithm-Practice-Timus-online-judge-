@@ -1,4 +1,20 @@
-
+input = gets.strip.split("")
+premium = {"A"=> "window","D"=> "window", "B"=> "aisle", "C"=> "aisle"}
+business = {"A"=> "window","F"=> "window", "B"=> "aisle", "C"=> "aisle", "D"=> "aisle", "E"=> "aisle"}
+economic = {"A"=> "window","K"=> "window", "C"=> "aisle", "D"=> "aisle", "G"=> "aisle", "H"=> "aisle", "B"=> "neither", "E"=> "neither", "F"=> "neither", "J"=> "neither"}
+seat_pos = input[-1]
+if input.length == 2
+  row = input[0].to_i
+else
+  row = (input -= [seat_pos]).join("").to_i
+end
+if row < 3
+  puts premium[seat_pos]
+elsif row < 21 && row >= 3
+  puts business[seat_pos]
+else
+  puts economic[seat_pos]
+end
 
 
 

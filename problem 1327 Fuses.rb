@@ -42,4 +42,4 @@ puts count
 # 3
 # 100 200
 # output
-# 50 
+# 50
