@@ -1,5 +1,11 @@
-
-
+n = gets.to_i
+a = []
+(0..100).each do |x|
+  if (x ** 1/n).is_a? Integer
+    a << x
+  end
+end
+print a
 
 # 1349. Farm
 # Time limit: 1.0 second Memory limit: 64 MB

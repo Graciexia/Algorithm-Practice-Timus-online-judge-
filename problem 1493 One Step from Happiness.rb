@@ -1,12 +1,26 @@
-input = gets.strip.split("").map{|x| x.to_i}
-if input[0] + input[1] +input[2] == input[3] + input[4] +input[5] + 1 || input[0] + input[1] +input[2] == input[3] + input[4] +input[5] - 1
-  puts "Yes"
+tiket_number = gets.strip.to_i
+input_up = (tiket_number+1).to_s.split("").map{|x| x.to_i}
+input_down = (tiket_number-1).to_s.split("").map{|x| x.to_i}
+n = input_up.length
+m = input_down.length
+sum_input_up = 0
+sum_input_down = 0
+if n > 3 && m >3
+  (0..n-4).each do |x|
+    sum_input_up += input_up[x]
+  end
+  (0..m-4).each do |x|
+    sum_input_down += input_down[x]
+  end
+  if sum_input_up == input_up[-3] + input_up[-2] +input_up[-1] ||
+    sum_input_down == input_down[-3] + input_down[-2] +input_down[-1]
+    puts "Yes"
+  else
+    puts "No"
+  end
 else
   puts "No"
 end
-print input
-puts (input[3] + input[4] +input[5])
-puts (input[0] + input[1] +input[2])
 
 
 
