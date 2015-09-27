@@ -15,8 +15,24 @@ if petr - petr_inc > taxi
 else
   puts taxi
 end
-# puts petr
-# puts taxi
+
+# soulution 2
+# petr, petr_inc, taxi, taxi_dec = gets.split(" ").map{|x| x.to_i}
+# while true
+#   petr += petr_inc
+#   if petr >= taxi
+#     puts taxi
+#     break
+#   end
+#   taxi -= taxi_dec
+#   if taxi <= petr
+#     puts petr
+#     break
+#   end
+# end
+
+
+
 # 1607. Taxi
 # Time limit: 0.5 second Memory limit: 64 MB
 # Petr likes going by taxi. For him, it is not only the pleasure
