@@ -1,12 +1,22 @@
-a, b, c, d = gets.split(" ").map{|x| x.to_i}
-n = [c/d, a/b].max
-(0..n).each do |time|
-  if a + b*time >= c - d*time
-    puts a + b*time
-    break
+petr, petr_inc, taxi, taxi_dec = gets.split(" ").map{|x| x.to_i}
+n = [taxi/taxi_dec, petr/petr_inc].max * 2
+(1..n).each do |turn|
+  if turn % 2 == 0
+    taxi -= taxi_dec
+  else
+    petr += petr_inc
+    if petr >= taxi
+      break
+    end
   end
 end
-
+if petr - petr_inc > taxi
+  puts (petr - petr_inc)
+else
+  puts taxi
+end
+# puts petr
+# puts taxi
 # 1607. Taxi
 # Time limit: 0.5 second Memory limit: 64 MB
 # Petr likes going by taxi. For him, it is not only the pleasure
