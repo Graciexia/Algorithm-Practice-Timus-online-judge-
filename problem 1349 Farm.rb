@@ -1,11 +1,42 @@
 n = gets.to_i
-a = []
-(0..100).each do |x|
-  if (x ** 1/n).is_a? Integer
-    a << x
+animals = []
+(1..100).each do |a|
+  (a+1..100).each do |b|
+    if n != 0
+      c = (a ** n + b ** n)**(1.0/n)
+      if c.to_i == c && c > b
+        # we have an answer
+        animals << a
+        animals << b
+        animals << c.to_i
+        break
+      end
+    end
+# solution2
+    # (b+1..100).each do |c|
+    #   an = a**n
+    #   bn = b**n
+    #   cn = c**n
+    #   if cn > an + bn
+    #     break
+    #   elsif
+    #     cn == an + bn
+    #     animals << a
+    #     animals << b
+    #     animals << c
+    #     break
+    #   end
+    # end
+    break if animals.size != 0
   end
+  break if animals.size != 0
 end
-print a
+if animals.size != 0
+  puts "#{animals[0]} #{animals[1]} #{animals[2]}"
+else
+  puts "-1"
+end
+
 
 # 1349. Farm
 # Time limit: 1.0 second Memory limit: 64 MB
