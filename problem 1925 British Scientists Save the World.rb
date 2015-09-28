@@ -1,4 +1,14 @@
-
+n, k = gets.split(" ").map{|x| x.to_i}
+difference = 0
+(1..n).each do
+  b, g = gets.split(" ").map{|x| x.to_i}
+    difference += b - g - 2
+end
+if  k + difference - 2 >= 0
+  puts (k + difference - 2)
+else
+  puts "Big Bang!"
+end
 
 
 
@@ -23,10 +33,17 @@
 # entered in the i-th year). All the integers in the input data do not exceed 100. Output Output one nonnegative
 # integer to save the world from the explosion. If there is no such number output “Big Bang!”.
 # Samples input
-# 6 5 3 1 3 1 5 3 6 5 5 5 7 2
+# 6 5
+# 3 1
+# 3 1
+# 5 3
+# 6 5
+# 5 5
+# 7 2
 # output
 # 3
 # input
-# 1 3 4 6
+# 1 3
+# 4 6
 # output
 # Big Bang!
