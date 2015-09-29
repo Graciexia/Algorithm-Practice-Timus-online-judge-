@@ -1,19 +1,17 @@
 n = gets.to_i
 names = {}
-bugs = []
-(1..n).each do |value|
+(1..n).each do
   key = gets.strip
   if names[key]== nil
-    names[key] = value
+    names[key] = 1
   else
-    if bugs.include? key
-      "skip"
-    else
-      bugs << key
+    names[key] += 1
+    if names[key] == 2
+      puts key
     end
   end
 end
-puts bugs
+
 
 
 
