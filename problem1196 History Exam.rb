@@ -1,7 +1,4 @@
-
-
-
-# Accepted!! :-D
+# Hash approach Accepted!! :-D
 dates = STDIN.read.split(" ").map{|x|x.to_i}
 n = dates[0]
 prof_dates = {}
@@ -18,7 +15,49 @@ puts count
 
 
 
-# too slow :-(
+# recursion is too slow :-(
+# def bin_search(search_value, arr, start_index, end_index)
+#   if arr[start_index] <= search_value && search_value <= arr[end_index]
+#     mid_index = (start_index + end_index)/2
+#     if search_value == arr[mid_index]
+#       return true
+#     elsif search_value > arr[mid_index]
+#       return bin_search(search_value, arr, mid_index+1, end_index)
+#     else
+#       return bin_search(search_value, arr, start_index, mid_index-1)
+#     end
+#   else
+#     return false
+#   end
+# end
+
+# still too slow
+# dates = STDIN.read.split(" ").map{|x|x.to_i}
+# n = dates[0]
+# count = 0
+#
+# (n+2..dates.size-1).each do |i|
+#   start_index = 1
+#   end_index = n
+#   while start_index <= end_index
+#     mid_index = (start_index + end_index) / 2
+#     if dates[i] == dates[mid_index]
+#       count += 1
+#       break
+#     elsif dates[i] < dates[mid_index]
+#       end_index = mid_index - 1
+#     else
+#       start_index = mid_index + 1
+#     end
+#   end
+# end
+#  puts count
+
+
+
+
+
+# slow :-(
 # n = gets.to_i
 # date_list = STDIN.read.split(" ")
 # date_list = date_list - [date_list[n]]
