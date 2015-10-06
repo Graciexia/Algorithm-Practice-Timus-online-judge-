@@ -1,40 +1,50 @@
-n = gets.to_i
-teams = []
-(0..n-1).each do |x|
-  teams[x]= gets.split(" ")
-end
-member_num = {}
-member_num["Isenbaev"] = 0
-teams.each do |team|
-  team.each do |name|
-    if member_num[name] != nil
-      (team - [name]).each do |member|
-        if member_num[member] == nil
-          member_num[member] = member_num[name] + 1
-        else
-          member_num[member] = [member_num[member], member_num[name] + 1].min
-        end
+class Member
+  def initialize(members)
+    @score = 'undefined'
+    @teammates = {}
+    @members = members
+  end
+
+  def add_teammates(arr_names)
+    arr_names.each do |name|
+      if @teammates[name] == nil
+        @teammates[name] = true
+      end
+    end
+  end
+
+  def score
+    @score
+  end
+
+  def score= (score)
+    if @score == 'undefined' || score < @score
+      @score = score
+      # now check scores of all my teammates
+      @teammates.each do |name, value|
+        @members[name].score = score+1
       end
     end
   end
 end
-teams.each do |team|
-if member_num[team[0]] == nil && member_num[team[1]] == nil && member_num[team[2]] == nil
-  team.each do |name|
-    member_num[name]= "undefined"
+
+n = gets.to_i
+members = {}
+(1..n).each do
+  names = gets.split(" ")
+  names.each do |name|
+    if members[name] == nil
+      members[name] = Member.new(members)
+    end
+    members[name].add_teammates(names - [name])
   end
 end
-
-puts member_num
-
-
-# if team.include? ("Isenbaev")
-#   team.each do |name|
-#     if name != "Isenbaev"
-#     member_num[name] = 1
-#     end
-#   end
-# end
+if members['Isenbaev'] != nil
+  members['Isenbaev'].score = 0
+end
+members.keys.sort.each do |name|
+  puts "#{name} #{members[name].score}"
+end
 
 # 1837. Isenbaev's Number
 # Time limit: 0.5 second Memory limit: 64 MB
@@ -74,7 +84,7 @@ puts member_num
 # Cormen undefined
 # Dublennykh 2
 # Fominykh 1
-# Isenbaev 0 I
+# Isenbaev 0
 # vankov 2
 # Kurpilyanskiy 3
 # Leiserson undefined Oparin 1
